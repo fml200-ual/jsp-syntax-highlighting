@@ -7,6 +7,8 @@ para ficheros JavaServer Pages.
 > de pago. Sin suscripción, un `.jsp` se abre como texto plano. Este plugin cubre ese hueco con un
 > lexer y un esquema de color propios.
 
+[Licencia: MIT](LICENSE) · Requiere IntelliJ IDEA 2025.3 (build `253`) o superior
+
 ---
 
 ## Qué resalta
@@ -153,5 +155,5 @@ compartida: el IDE decide qué file type la atiende y se puede forzar en
 
 ## Licencia
 
-Sin licencia todavía. Antes de publicar o compartir el repositorio, añade una (`LICENSE`), p. ej.
-MIT si quieres que cualquiera pueda reutilizarlo.
+MIT — ver [LICENSE](LICENSE). Puedes usar, modificar y redistribuir el plugin manteniendo el aviso
+de copyright.
