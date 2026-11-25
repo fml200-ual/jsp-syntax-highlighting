@@ -1,0 +1,35 @@
+<idea-plugin>
+    <id>dev.jsp.highlight</id>
+    <name>JSP Highlight</name>
+    <vendor>jsp-highlight</vendor>
+
+    <description><![CDATA[
+    Syntax highlighting for JavaServer Pages files in IntelliJ IDEA 2025.3 (unified product line),
+    primarily for installations without the paid JSP support, where <code>.jsp</code> files
+    otherwise open as plain text.
+    <br/>
+    Highlighted constructs: template text, HTML tags and attributes, JSP comments
+    (<code>&lt;%-- --%&gt;</code>), scriptlets (<code>&lt;% %&gt;</code>),
+    expressions (<code>&lt;%= %&gt;</code>), declarations (<code>&lt;%! %&gt;</code>),
+    directives (<code>&lt;%@ %&gt;</code>), and EL expressions (<code>${...}</code>, <code>#{...}</code>).
+    <br/>
+    The plugin registers its own language id (<code>JSP_HIGHLIGHT</code>) and file type name, so it
+    does not collide with JetBrains' JSP support if that ever becomes active.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <language id="JSP_HIGHLIGHT" implementationClass="dev.jsp.highlight.JspLanguage"/>
+        <fileType name="JSP (highlight)"
+                  language="JSP_HIGHLIGHT"
+                  implementationClass="dev.jsp.highlight.JspFileType"
+                  fieldName="INSTANCE"
+                  extensions="jsp;jspf;jspx;tag;tagx"/>
+        <lang.syntaxHighlighterFactory language="JSP_HIGHLIGHT"
+                                       implementationClass="dev.jsp.highlight.JspSyntaxHighlighterFactory"/>
+        <lang.parserDefinition language="JSP_HIGHLIGHT"
+                               implementationClass="dev.jsp.highlight.JspParserDefinition"/>
+        <colorSettingsPage implementation="dev.jsp.highlight.JspColorSettingsPage"/>
+    </extensions>
+</idea-plugin>
